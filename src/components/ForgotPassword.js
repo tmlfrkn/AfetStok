@@ -23,13 +23,10 @@ const ForgotPassword = () => {
                 <div className="right-content-fp">
                     <img src = {image} alt="image" className="logo-right-fp"></img>
                     <input type="text"
-                    placeholder="Name Surname" />
+                    placeholder="Authorized Number" />
                     <input type = "text"
                     placeholder="E-mail" />
-                    <input type="text"
-                    placeholder="Phone Number" />
-                    <Link to = "/"> <button>Sign Up</button></Link>
-                    <p>Already have an account? <Link className="toLogin" to= "/login"> Login</Link></p>
+                    <Link to = "/"> <button>Submit</button></Link>
 
                 </div>
 
