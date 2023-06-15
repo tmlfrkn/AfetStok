@@ -5,13 +5,16 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SignedIn from "./components/SignedIn"; // Geçici
 import Dashboard from "./components/Dashboard";
 import AboutUs from "./components/AboutUs";
+import FirebaseInitializer from "./components/dbsetup";
 
 function App() {
+
+  
   return (
 
 
     <div>
-
+      <FirebaseInitializer/>
       <Routes>
         <Route path="/signed-in" element={<SignedIn />} />
         <Route path="/login" element={<Login />} />
