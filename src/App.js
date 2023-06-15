@@ -7,6 +7,7 @@ import AboutUs from "./components/AboutUs";
 import DashboardAdmin from "./components/DashboardAdmin";
 import Dashboard from "./components/Dashboard";
 import Contact from "./components/Contact";
+import ForgotPassword from "./components/ForgotPassword";
 
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
         <Route path="*" element={<DashboardAdmin />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+
       </Routes>
 
     </div>
