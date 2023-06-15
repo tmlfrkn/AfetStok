@@ -1,0 +1,180 @@
+.container-aboutus{
+    display: flex;
+    height: 100vh;
+    position: relative;
+}
+
+.left-aboutus{
+    position: relative;
+    flex: 1;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-right: 1px solid;
+    border-color: rgb(218, 212, 212);
+    
+}
+
+.right-aboutus{
+    
+    flex:5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-aboutus{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    max-width: 70%;
+    transform: translateX(-50%);
+
+}
+
+.link-container-aboutus{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    bottom: 35%;
+    width: 100%;
+}
+
+.link{
+    margin: 10%;
+    text-decoration: none;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.upper-div{
+    display: flex;
+    flex: 2;
+    position: relative;
+    border: 1px solid;
+    border-radius: 20px;
+    width: 90%;
+    height: 90%;
+    margin: 1%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-color: white;
+    
+}
+
+.lower-div{
+    position: relative;
+    display: flex;
+    flex:3;
+    border: 1px solid;
+    border-radius: 20px;
+    margin-bottom: 3%;
+    width: 80%;
+    height: 90%;
+    border: 1px solid;
+    border-color: white;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.us{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    
+}
+.man{
+    position: relative;
+    width: 100%;
+    height: 90%;
+    margin: 1%;
+    border: 1px solid;
+    justify-content: center;
+    align-items: center;
+    border-color: rgb(223, 214, 214);
+    border-radius: 20%;
+    text-align: center;
+}
+
+.image{
+    position: relative;
+    width: 40%;
+    height: 30%;
+    border-radius: 50%;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 8%;
+    top: 5%;
+}
+
+.name{
+    position: relative;
+    font-weight: bold;
+    
+    margin-bottom: none;
+    font-size: small;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    color: rgb(92, 92, 92);
+}
+
+
+
+
+
+.side{
+    position: relative;
+    margin-top: 0;
+    font-size: x-small;
+    color: rgb(201, 191, 191);
+}
+
+.box{
+    position: relative;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    border: 1px solid;
+    border-radius: 5%;
+    border-color: rgb(201, 191, 191);
+    
+}
+
+.box-left{
+    margin-right: 10%;
+}
+
+.text{
+    position: relative;
+    margin-top: 10%;
+    margin-left: 8%;
+    font-weight: bold;
+}
+
+.linkedin{
+    position: relative;
+    bottom: -6%;
+    width: 20%;
+    border: 1px solid;
+    border-color: white;
+    border-radius: 15%;
+}
+
+.inner{
+    font-size: small;
+    color: rgb(184, 184, 184);
+    position: relative;
+    margin-top: 5%;
+    padding: 7%;
+}
