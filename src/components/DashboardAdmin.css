@@ -1,0 +1,167 @@
+.container-dash{
+    display: flex;
+    height: 100vh;
+    position: relative;
+}
+
+.left-dash{
+    position: relative;
+    flex: 1;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-right: 1px solid;
+    border-color: rgb(218, 212, 212);
+
+}
+.logo-dash{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    max-width: 70%;
+    transform: translateX(-50%);
+
+}
+
+.link-container-dash{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    bottom: 35%;
+    width: 100%;
+}
+
+.link-dash{
+    margin: 10%;
+    text-decoration: none;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.right-dash{
+    position: relative;
+    flex-direction: row;
+    flex:5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dash-upper-part{
+    flex: 1;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid;
+    border-color: rgb(218, 212, 212);
+    
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 100%;
+
+
+
+    
+    
+}
+.dash-lower-part{
+flex: 9;
+width: 100%;
+}
+.dash-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 3;
+    padding-right: 5%;
+    
+    
+    
+    
+}
+
+
+
+.search-bar-div{
+    display: flex;
+  position: relative;
+   flex: 2;
+   top: 10%;
+   
+   
+
+}
+
+.search-bar-dash{
+    position: relative;
+    width: 70%;
+    border: 1px solid;
+    border-color: #EAECEE;
+    border-radius: 15px;
+}
+
+.up{
+    position: relative;
+   
+}
+
+.cities{
+    margin-left: 5%;
+    margin-top: 0px;
+    background-color: #F5B9B726;
+    font-family: "Abhaya Libre ExtraBold";
+    font-weight: bold;
+}
+
+.lower-upper-dash{
+    display: flex;
+    flex: 1;
+}
+.lower-lower-dash{
+    display: flex;
+    flex: 4;
+}
+.current-city{
+    
+    position: relative;
+    width: 10%;
+    left: 5%;
+}
+
+.requirement-dash{
+    width: 15%;
+    position: relative;
+    left: 30%;
+}
+
+.buttons-dash-lower{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+    
+}
+
+.needs{
+    position: relative;
+    width: 100%;
+    margin: 5%;
+    background-color: #F5B9B726;
+    font-family: "Abhaya Libre ExtraBold";
+    font-weight: bold;
+}
+
+.low-up{
+    background-color: #F5B9B726;
+    font-family: "Abhaya Libre ExtraBold";
+    font-weight: bold;
+
+}
+
