@@ -8,6 +8,7 @@ import DashboardAdmin from "./components/DashboardAdmin";
 import Dashboard from "./components/Dashboard";
 import Contact from "./components/Contact";
 import ForgotPassword from "./components/ForgotPassword";
+import SignUp from "./components/SignUp";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/new-account" element={<SignUp />} />
 
       </Routes>
 
