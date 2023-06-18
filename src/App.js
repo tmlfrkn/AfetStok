@@ -10,6 +10,7 @@ import Contact from "./components/Contact";
 import ForgotPassword from "./components/ForgotPassword";
 import SignUp from "./components/SignUp";
 import Veri from "./components/Veri.js"
+import FirebaseInitializer from "./components/dbsetup";
 
 
 function App() {
@@ -19,7 +20,6 @@ function App() {
 
 
     <div>
-     
 
      <Routes>
         <Route path="/signed-in" element={<SignedIn />} />
