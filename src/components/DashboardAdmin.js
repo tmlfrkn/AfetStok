@@ -2,6 +2,10 @@ import React from "react";
 import "./DashboardAdmin.css";
 import { Link } from "react-router-dom";
 import image from "./red.png"
+import dashboardimage from "./images/tab.png"
+import aboutusimage from "./images/bookmarks.png"
+import contactimage from "./images/share.png"
+import loginimage from "./images/account-circle.png"
 
 const DashboardAdmin = () => {
 
@@ -12,11 +16,22 @@ const DashboardAdmin = () => {
                 <div className="image-dash">
                     <img src={image} alt="image" className="logo-dash"></img>
                 </div>
+                 
                 <div className="link-container-dash">
+                    <div className="image-container-dash">
+                        <img src={dashboardimage}></img>
+                        <img src={aboutusimage}></img>
+                        <img src={contactimage}></img>
+                    </div>
+                    <div className="link-dash-v1">
                     <Link to="/" className="link-dash">Dashboard</Link>
                     <Link to="/contact" className="link-dash">Contact</Link>
                     <Link to="/about-us" className="link-dash">About Us</Link>
-                    <Link to="/login" className="link-dash ">Login</Link>
+                    </div>
+                </div>
+                <div className="login-dashboard">
+                    <img src={loginimage}></img>
+                <Link to="/login" className="login-dash">Login</Link>
                 </div>
             </div>
 

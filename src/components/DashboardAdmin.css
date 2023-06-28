@@ -26,19 +26,46 @@
 }
 
 .link-container-dash{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    bottom: 35%;
+    margin-left: 10%;
+    height: 20%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     width: 100%;
 }
 
 .link-dash{
-    margin: 10%;
     text-decoration: none;
     font-size: 100%;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    color: black;
+}
+
+.link-dash-v1{
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.image-container-dash {
+    margin-left: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.login-dashboard {
+    margin: 20%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 60%;
+}
+
+.login-dash {
+    color: black;
+    text-decoration: none;
     font-weight: bold;
 }
 
