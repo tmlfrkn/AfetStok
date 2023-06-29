@@ -8,6 +8,10 @@ import onur from "./images/onur.png";
 import umut from "./images/umut.png";
 import furkan from "./images/furkan.png";
 import linkedin from "./images/linkedin.png";
+import dashboardimage from "./images/tab.png"
+import aboutusimage from "./images/bookmarks.png"
+import contactimage from "./images/share.png"
+import loginimage from "./images/account-circle.png"
 
 const AboutUs = () => {
     return (
@@ -17,10 +21,20 @@ const AboutUs = () => {
                     <img src={image} alt="image" className="logo-aboutus"></img>
                 </div>
                 <div className="link-container-aboutus">
-                    <Link to="/" className="link">Dashboard</Link>
-                    <Link to="/contact" className="link">Contact</Link>
-                    <Link to="/about-us" className="link">About Us</Link>
-                    <Link to="/login" className="link ">Login</Link>
+                    <div className="image-container-aboutus">
+                        <img src={dashboardimage}></img>
+                        <img src={aboutusimage}></img>
+                        <img src={contactimage}></img>
+                    </div>
+                    <div className="link-about-v1">
+                    <Link to="/" className="link-about">Dashboard</Link>
+                    <Link to="/contact" className="link-about">Contact</Link>
+                    <Link to="/about-us" className="link-about">About Us</Link>
+                    </div>
+                </div>
+                <div className="login-aboutus">
+                    <img src={loginimage}></img>
+                <Link to="/login" className="login-about">Login</Link>
                 </div>
             </div>
 

@@ -36,21 +36,49 @@
 }
 
 .link-container-aboutus{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    bottom: 35%;
+    margin-left: 10%;
+    height: 20%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     width: 100%;
 }
 
-.link{
-    margin: 10%;
+.link-about{
     text-decoration: none;
     font-size: 100%;
     font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    color: black;
 }
+
+.link-about-v1{
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.image-container-aboutus {
+    margin-left: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.login-aboutus {
+    margin: 20%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 60%;
+}
+
+.login-about {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 
 .upper-div{
     display: flex;
