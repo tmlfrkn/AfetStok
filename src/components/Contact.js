@@ -17,21 +17,21 @@ const Contact = () => {
                 <div className="image-div">
                     <img src={image} alt="image" className="logo-contact"></img>
                 </div>
-                <div className="link-container-dash">
-                    <div className="image-container-dash">
+                <div className="link-container-aboutus">
+                    <div className="image-container-aboutus">
                         <img src={dashboardimage}></img>
                         <img src={aboutusimage}></img>
                         <img src={contactimage}></img>
                     </div>
-                    <div className="link-dash-v1">
-                    <Link to="/" className="link-dash">Dashboard</Link>
-                    <Link to="/contact" className="link-dash">Contact</Link>
-                    <Link to="/about-us" className="link-dash">About Us</Link>
+                    <div className="link-about-v1">
+                    <Link to="/" className="link-about">Dashboard</Link>
+                    <Link to="/contact" className="link-about">Contact</Link>
+                    <Link to="/about-us" className="link-about">About Us</Link>
                     </div>
                 </div>
-                <div className="login-dashboard">
+                <div className="login-aboutus">
                     <img src={loginimage}></img>
-                <Link to="/login" className="login-dash">Login</Link>
+                <Link to="/login" className="login-about">Login</Link>
                 </div>
             </div>
 

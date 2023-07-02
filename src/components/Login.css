@@ -31,7 +31,7 @@
   width: 40%;
 }
 
-input {
+.input {
   
   margin-bottom: 10px;
   padding: 8px;
@@ -42,12 +42,13 @@ input {
   width: 100%;
   
 }
-input::placeholder{
+
+.input::placeholder{
     color: rgb(222, 207, 207);
 }
 
 
-button {
+.button {
   width: 90%;
   height: 40px;
   background-color: #FFD3D3;

@@ -45,19 +45,19 @@ const Login = () => {
 
 
                     <img src={image} alt="image" className="logo-right"></img>
-                    <input type="text"
+                    <input  className="input" type="text"
                     placeholder="Authorized Number"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}/>
 
-                    <input type="password"
+                    <input className="input" type="password"
                       placeholder="Password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                          />
 
                     <Link to="/signed-in">
-                      <button onClick={handleSubmit}>Submit</button>
+                      <button className="button" onClick={handleSubmit}>Submit</button>
                     </Link>
 
                     <div className="buttons">
