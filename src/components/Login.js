@@ -16,7 +16,7 @@ const Login = () => {
     event.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/signed-in");
+      navigate("/dashboard");
     } catch (error) {
       console.error(error);
       alert(error.message);
@@ -56,7 +56,7 @@ const Login = () => {
                       onChange={(e) => setPassword(e.target.value)}
                          />
 
-                    <Link to="/signed-in">
+                    <Link to="/dashboard">
                       <button className="button" onClick={handleSubmit}>Submit</button>
                     </Link>
 
