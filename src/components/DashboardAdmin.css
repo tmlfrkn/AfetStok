@@ -223,6 +223,7 @@ width: 100%;
     background-color: #FFF0F0;
     align-items: center;
     flex: 3;
+    height: 20px;
     
 }
 
@@ -244,6 +245,9 @@ width: 100%;
 
 .inner-box{
     position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
     border: 1px solid;
     border-radius: 90px;
     background-color: #FFBBBB;
@@ -256,9 +260,40 @@ width: 100%;
 
 
 
-.outer-div{
+.outer-divv{
     display: flex;
     position: relative;
     margin-bottom: 2%;
+    justify-content: center;
+    align-items: center;
+    
+
   
+}
+
+.righttt{
+    margin-left: 1%;
+}
+
+.lefttt{
+    margin-right: 1%;
+}
+
+.buttonsss{
+    display: flex;
+    position: relative;
+    height: 20px;
+}
+
+.nurli{
+    height: 100%;
+}
+
+.values-of-boxes{
+    position: absolute;
+    display: flex;
+    right: 40%;
+    align-items: center;
+    justify-content: center;
+    color: black;
 }

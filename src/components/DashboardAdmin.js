@@ -8,6 +8,7 @@ import dashboardimage from "./images/tab.png"
 import aboutusimage from "./images/bookmarks.png"
 import contactimage from "./images/share.png"
 import loginimage from "./images/account-circle.png"
+import search from "./images/search.png"
 
 const DashboardAdmin = () => {
 
@@ -19,6 +20,7 @@ const DashboardAdmin = () => {
     let [clothesNames, setClothesNames] = useState([]);
     const [selectedCity, setSelectedCity] = useState('');
     const [cities, setCities] = useState([]);
+    const [searchInput, setSearchInput] = useState('');
 
     const firestore = firebase.firestore();
 
@@ -82,27 +84,78 @@ const DashboardAdmin = () => {
         fetchData();
     }, [selectedCity]);
 
-    const foodsBoxes = generateBoxes(11, foodArray, foodNames);
-    const medicalBoxes = generateBoxes(11, medicineArray, medicineNames);
-    const clothesBoxes = generateBoxes(11, clothesArray, clothesNames);
 
     function generateBoxes(count, dataArray, namesArray) {
         const boxes = [];
         for (let i = 1; i <= count; i++) {
-            boxes.push(
-                <div className="outer-div" key={i}>
-                    <div className="property">
-                        {namesArray[i - 1]}
-                    </div>
-                    <div className={`x${i} boxx`}>
-
-                        <div className="inner-box" style={{ width: `${dataArray[i - 1]}%`, position: "relative" }}>
-                        </div>
-                    </div>
-                </div>);
+          const handleDecrease = () => {
+            const inputValue = prompt("Enter the decrease amount:");
+            const decreaseAmount = parseInt(inputValue);
+            if (!isNaN(decreaseAmount)) {
+              const newDataArray = [...dataArray];
+              newDataArray[i - 1] = Math.max(newDataArray[i - 1] - decreaseAmount, 0);
+              newDataArray[i - 1] = Math.min(newDataArray[i - 1], 1000); // Apply maximum constraint
+              dataArray === foodArray
+                ? setFoodArray(newDataArray)
+                : dataArray === medicineArray
+                ? setMedicineArray(newDataArray)
+                : setClothesArray(newDataArray);
+            }
+          };
+    
+          const handleIncrease = () => {
+            const inputValue = prompt("Enter the increase amount:");
+            const increaseAmount = parseInt(inputValue);
+            if (!isNaN(increaseAmount)) {
+              const newDataArray = [...dataArray];
+              newDataArray[i - 1] = Math.min(newDataArray[i - 1] + increaseAmount, 1000); // Apply maximum constraint
+              newDataArray[i - 1] = Math.max(newDataArray[i - 1], 0); // Apply minimum constraint
+              dataArray === foodArray
+                ? setFoodArray(newDataArray)
+                : dataArray === medicineArray
+                ? setMedicineArray(newDataArray)
+                : setClothesArray(newDataArray);
+            }
+          };
+    
+          boxes.push(
+            <div className="outer-divv" key={i}>
+              <div className="property">{namesArray[i - 1]}</div>
+              <div className="lefttt buttonsss">
+                <button className="nurli" onClick={handleDecrease}>-</button>
+              </div>
+              <div className={`x${i} boxx`}>
+              
+                <div
+                  className="inner-box"
+                  style={{ width: `${dataArray[i - 1]/10}%`, position: "relative" }}
+                >
+                </div>
+                <p className="values-of-boxes">{`${dataArray[i - 1]}/1000`}</p>
+              </div>
+              <div className="righttt buttonsss">
+                <button className="nurli" onClick={handleIncrease}>+</button>
+              </div>
+            </div>
+          );
         }
         return boxes;
-    }
+      }
+      
+      
+      const foodsBoxes = generateBoxes(11, foodArray, foodNames);
+      const medicalBoxes = generateBoxes(11, medicineArray, medicineNames);
+      const clothesBoxes = generateBoxes(11, clothesArray, clothesNames);
+
+      useEffect(() => {
+        // Set İzmir as the default city when the component mounts
+        setSelectedCity('İzmir');
+      }, []);
+
+      
+
+      
+    
 
     return (
         <div className="container-dash">
@@ -124,7 +177,7 @@ const DashboardAdmin = () => {
                 </div>
                 <div className="login-aboutus">
                     <img src={loginimage}></img>
-                <Link to="/login" className="login-about">Login</Link>
+                <Link to="/signed-in" className="login-about">Log out</Link>
                 </div>
             </div>
 
@@ -137,12 +190,18 @@ const DashboardAdmin = () => {
                         <button className="adana cities" onClick={() => setSelectedCity('Adana')}>Adana</button>
                     </div>
                     <div className="search-bar-div up">
-                        <input
-                            className="search-bar-dash"
-                            type="text"
-                            placeholder="Search for city"
-                            onChange={(e) => setSelectedCity(e.target.value)}
-                        />
+                    <input
+                        className="search-bar-dash"
+                        type="text"
+                        placeholder="Search for city"
+                        value={searchInput}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                                setSelectedCity(searchInput);
+                            }
+                        }}
+                        onChange={(e) => setSearchInput(e.target.value)}
+                    />
                     </div>
                 </div>
                 <div className="dash-lower-part">
