@@ -1,58 +1,192 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./DashboardAdmin.css";
 import { Link } from "react-router-dom";
-import image from "./red.png"
+import image from "./red.png";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import dashboardimage from "./images/tab.png"
+import aboutusimage from "./images/bookmarks.png"
+import contactimage from "./images/share.png"
+import loginimage from "./images/account-circle.png"
 
 const DashboardAdmin = () => {
 
+    let [foodArray, setFoodArray] = useState([]);
+    let [foodNames, setFoodNames] = useState([]);
+    let [medicineArray, setMedicineArray] = useState([]);
+    let [medicineNames, setMedicineNames] = useState([]);
+    let [clothesArray, setClothesArray] = useState([]);
+    let [clothesNames, setClothesNames] = useState([]);
+    const [selectedCity, setSelectedCity] = useState('');
+    const [cities, setCities] = useState([]);
+
+    const firestore = firebase.firestore();
+
+    useEffect(() => {
+        const fetchCities = async () => {
+            try {
+                const citiesRef = firestore.collection('Cities');
+                const citiesSnapshot = await citiesRef.get();
+                const citiesData = citiesSnapshot.docs.map((doc) => doc.data().name);
+                setCities(citiesData);
+            } catch (error) {
+                console.error('Error fetching cities:', error);
+            }
+        };
+
+        fetchCities();
+    }, []);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                if (selectedCity === '') {
+                    // Reset the data if no city is selected
+                    setFoodArray([]);
+                    setFoodNames([]);
+                    setMedicineArray([]);
+                    setMedicineNames([]);
+                    setClothesArray([]);
+                    setClothesNames([]);
+                    return;
+                }
+
+                const cityRef = firestore.collection('Cities').where('name', '==', selectedCity);
+                const citySnapshot = await cityRef.get();
+
+                if (!citySnapshot.empty) {
+                    const foodRef = citySnapshot.docs[0].ref.collection('Food').doc('document');
+                    const foodSnapshot = await foodRef.get();
+                    const foodData = foodSnapshot.data();
+                    const medicineRef = citySnapshot.docs[0].ref.collection('Medicine').doc('document');
+                    const medicineSnapshot = await medicineRef.get();
+                    const medicineData = medicineSnapshot.data();
+                    const clothesRef = citySnapshot.docs[0].ref.collection('Clothes').doc('document');
+                    const clothesSnapshot = await clothesRef.get();
+                    const clothesData = clothesSnapshot.data();
+
+                    setFoodNames(Object.keys(foodData));
+                    setFoodArray(Object.values(foodData));
+                    setMedicineNames(Object.keys(medicineData));
+                    setMedicineArray(Object.values(medicineData));
+                    setClothesNames(Object.keys(clothesData));
+                    setClothesArray(Object.values(clothesData));
+                } else {
+                    console.log('No city with name:', selectedCity);
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        fetchData();
+    }, [selectedCity]);
+
+    const foodsBoxes = generateBoxes(11, foodArray, foodNames);
+    const medicalBoxes = generateBoxes(11, medicineArray, medicineNames);
+    const clothesBoxes = generateBoxes(11, clothesArray, clothesNames);
+
+    function generateBoxes(count, dataArray, namesArray) {
+        const boxes = [];
+        for (let i = 1; i <= count; i++) {
+            boxes.push(
+                <div className="outer-div" key={i}>
+                    <div className="property">
+                        {namesArray[i - 1]}
+                    </div>
+                    <div className={`x${i} boxx`}>
+
+                        <div className="inner-box" style={{ width: `${dataArray[i - 1]}%`, position: "relative" }}>
+                        </div>
+                    </div>
+                </div>);
+        }
+        return boxes;
+    }
 
     return (
-        <div class="container-dash">
+        <div className="container-dash">
             <div className="left-dash">
                 <div className="image-dash">
                     <img src={image} alt="image" className="logo-dash"></img>
                 </div>
-                <div className="link-container-dash">
-                    <Link to="/" className="link-dash">Dashboard</Link>
-                    <Link to="/contact" className="link-dash">Contact</Link>
-                    <Link to="/about-us" className="link-dash">About Us</Link>
-                    <Link to="/login" className="link-dash ">Login</Link>
+                <div className="link-container-aboutus">
+                    <div className="image-container-aboutus">
+                        <img src={dashboardimage}></img>
+                        <img src={aboutusimage}></img>
+                        <img src={contactimage}></img>
+                    </div>
+                    <div className="link-about-v1">
+                    <Link to="/" className="link-about">Dashboard</Link>
+                    <Link to="/contact" className="link-about">Contact</Link>
+                    <Link to="/about-us" className="link-about">About Us</Link>
+                    </div>
+                </div>
+                <div className="login-aboutus">
+                    <img src={loginimage}></img>
+                <Link to="/login" className="login-about">Login</Link>
                 </div>
             </div>
 
             <div className="right-dash">
                 <div className="dash-upper-part">
                     <div className="dash-buttons up">
-                        <button className="marmaris cities">Marmaris</button>
-                        <button className="kahramanmaraş cities">Kahramanmaraş</button>
-                        <button className="hatay cities">Hatay</button>
-                        <button className="adana cities">Adana</button>
+                        <button className="marmaris cities" onClick={() => setSelectedCity('İzmir')}>İzmir</button>
+                        <button className="kahramanmaraş cities" onClick={() => setSelectedCity('Kahramanmaraş')}>Kahramanmaraş</button>
+                        <button className="hatay cities" onClick={() => setSelectedCity('Hatay')}>Hatay</button>
+                        <button className="adana cities" onClick={() => setSelectedCity('Adana')}>Adana</button>
                     </div>
                     <div className="search-bar-div up">
-                        <input className="search-bar-dash" type="text" placeholder="Search for city" />
+                        <input
+                            className="search-bar-dash"
+                            type="text"
+                            placeholder="Search for city"
+                            onChange={(e) => setSelectedCity(e.target.value)}
+                        />
                     </div>
                 </div>
                 <div className="dash-lower-part">
                     <div className="lower-upper-dash">
-                        <button className="current-city low-up">Marmaris</button>
+                        <button className="current-city low-up">{selectedCity}</button>
                         <button className="requirement-dash low-up">
                             Requirement List
                         </button>
                     </div>
+
                     <div className="lower-lower-dash">
                         <div className="buttons-dash-lower">
-                            <button className="foods needs">Foods</button>
-                            <button className="medical-hygiene needs">Medical/Hygiene</button>
-                            <button className="clothes needs">Clothes</button>
+                            <div className="foods needs">
+                                <div className="property-heading">
+                                    <h2>Foods</h2>
+                                </div>
+                                <div className="boxes-container">
+                                    {foodsBoxes}
+                                </div>
+                            </div>
+
+                            <div className="medical-hygiene needs">
+                                <div className="property-heading">
+                                    <h2>Medical/Hygiene</h2>
+                                </div>
+                                <div className="boxes-container">
+                                    {medicalBoxes}
+                                </div>
+                            </div>
+
+                            <div className="clothes needs">
+                                <div className="property-heading">
+                                    <h2>Clothes</h2>
+                                </div>
+                                <div className="boxes-container">
+                                    {clothesBoxes}
+                                </div>
+                            </div>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
         </div>
     )
-}
+};
 
 export default DashboardAdmin;
