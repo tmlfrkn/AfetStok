@@ -78,8 +78,28 @@
     
 }
 
-.accounts-img {
-    position: relative;
-    width: 100%;
-    margin-right: -10%;
-}
+.lower-div {
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    align-items: center;
+    margin-top: 11%;
+  }
+  
+  .social-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 10px;
+    gap: 20%;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .social-icon {
+    justify-content: space-between;
+    width: 80%;
+    height: 80%;
+    margin-bottom: 5%;
+  }

@@ -2,13 +2,20 @@ import React from "react";
 import image from "./red.png";
 import { Link } from "react-router-dom";
 import "./Contact.css";
-import accounts from "./images/socialmediaaccounts.jpg"
 import dashboardimage from "./images/tab.png"
 import aboutusimage from "./images/bookmarks.png"
 import contactimage from "./images/share.png"
 import loginimage from "./images/account-circle.png"
+import facebookIcon from "./images/facebook.png";
+import twitterIcon from "./images/tw.png";
+import instagramIcon from "./images/insta.png";
+import googleIcon from "./images/google.png";
 
 const Contact = () => {
+
+    const navigateToSocialMedia = (url) => {
+        window.open(url, "_blank");
+      };
 
     return (
 
@@ -84,10 +91,24 @@ const Contact = () => {
 
                 </div>
                 <div className="lower-div">
+                    <a href="https://www.facebook.com" className="social-link">
+                        <img src={facebookIcon} alt="Facebook" className="social-icon" />
+                        <span>afetstokk</span>
+                    </a>
+                    <a href="https://www.twitter.com" className="social-link">
+                        <img src={twitterIcon} alt="Twitter" className="social-icon" />
+                        <span>afetstok</span>
+                    </a>
+                    <a href="https://www.instagram.com" className="social-link">
+                        <img src={instagramIcon} alt="Instagram" className="social-icon" />
+                        <span>afetstok</span>
+                    </a>
+                    <a href="https://www.google.com" className="social-link">
+                        <img src={googleIcon} alt="Google" className="social-icon" />
+                        <span>afetstok@gmail.com</span>
+                    </a>
+        </div>
 
-                    <img src = {accounts} className="accounts-img"></img>
-
-                </div>
             </div>
 
         </div>
