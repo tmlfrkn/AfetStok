@@ -192,15 +192,15 @@ const handleIncrease = async (i, dataArray, setDataArray, collectionName, namesA
       boxes.push(
         <div className="outer-divv" key={i}>
           <div className="property">{namesArray[i - 1]}</div>
-          <div className="lefttt buttonsss">
-            <button className="nurli" onClick={() => handleDecrease(i, dataArray, setDataArray, collectionName, namesArray)}>-</button>
+          <div className="left-minus buttonsss">
+            <button className="handle" onClick={() => handleDecrease(i, dataArray, setDataArray, collectionName, namesArray)}>-</button>
           </div>
           <div className={`x${i} boxx`}>
             <div className="inner-box" style={{ width: `${dataArray[i - 1] / 10}%`, position: "relative" }}></div>
             <p className="values-of-boxes">{`${dataArray[i - 1]}/1000`}</p>
           </div>
-          <div className="righttt buttonsss">
-            <button className="nurli" onClick={() => handleIncrease(i, dataArray, setDataArray, collectionName, namesArray)}>+</button>
+          <div className="right-plus buttonsss">
+            <button className="handle" onClick={() => handleIncrease(i, dataArray, setDataArray, collectionName, namesArray)}>+</button>
           </div>
         </div>
       );

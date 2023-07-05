@@ -271,11 +271,11 @@ width: 100%;
   
 }
 
-.righttt{
+.right-plus{
     margin-left: 1%;
 }
 
-.lefttt{
+.left-minus{
     margin-right: 1%;
 }
 
@@ -285,7 +285,7 @@ width: 100%;
     height: 20px;
 }
 
-.nurli{
+.handle{
     height: 100%;
 }
 
