@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./DashboardAdmin.css";
+import "./Dashboard.css";
 import { Link } from "react-router-dom";
 import image from "./red.png";
 import firebase from 'firebase/compat/app';
@@ -8,9 +8,8 @@ import dashboardimage from "./images/tab.png"
 import aboutusimage from "./images/bookmarks.png"
 import contactimage from "./images/share.png"
 import loginimage from "./images/account-circle.png"
-import search from "./images/search.png"
 
-const DashboardAdmin = () => {
+const Dashboard = () => {
 
     let [foodArray, setFoodArray] = useState([]);
     let [foodNames, setFoodNames] = useState([]);
@@ -88,42 +87,12 @@ const DashboardAdmin = () => {
     function generateBoxes(count, dataArray, namesArray) {
         const boxes = [];
         for (let i = 1; i <= count; i++) {
-          const handleDecrease = () => {
-            const inputValue = prompt("Enter the decrease amount:");
-            const decreaseAmount = parseInt(inputValue);
-            if (!isNaN(decreaseAmount)) {
-              const newDataArray = [...dataArray];
-              newDataArray[i - 1] = Math.max(newDataArray[i - 1] - decreaseAmount, 0);
-              newDataArray[i - 1] = Math.min(newDataArray[i - 1], 1000); // Apply maximum constraint
-              dataArray === foodArray
-                ? setFoodArray(newDataArray)
-                : dataArray === medicineArray
-                ? setMedicineArray(newDataArray)
-                : setClothesArray(newDataArray);
-            }
-          };
+        
     
-          const handleIncrease = () => {
-            const inputValue = prompt("Enter the increase amount:");
-            const increaseAmount = parseInt(inputValue);
-            if (!isNaN(increaseAmount)) {
-              const newDataArray = [...dataArray];
-              newDataArray[i - 1] = Math.min(newDataArray[i - 1] + increaseAmount, 1000); // Apply maximum constraint
-              newDataArray[i - 1] = Math.max(newDataArray[i - 1], 0); // Apply minimum constraint
-              dataArray === foodArray
-                ? setFoodArray(newDataArray)
-                : dataArray === medicineArray
-                ? setMedicineArray(newDataArray)
-                : setClothesArray(newDataArray);
-            }
-          };
     
           boxes.push(
             <div className="outer-divv" key={i}>
               <div className="property">{namesArray[i - 1]}</div>
-              <div className="lefttt buttonsss">
-                <button className="nurli" onClick={handleDecrease}>-</button>
-              </div>
               <div className={`x${i} boxx`}>
               
                 <div
@@ -133,9 +102,7 @@ const DashboardAdmin = () => {
                 </div>
                 <p className="values-of-boxes">{`${dataArray[i - 1]}/1000`}</p>
               </div>
-              <div className="righttt buttonsss">
-                <button className="nurli" onClick={handleIncrease}>+</button>
-              </div>
+
             </div>
           );
         }
@@ -177,7 +144,7 @@ const DashboardAdmin = () => {
                 </div>
                 <div className="login-aboutus">
                     <img src={loginimage}></img>
-                <Link to="/signed-in" className="login-about">Log out</Link>
+                <Link to="/login" className="login-about">Log in</Link>
                 </div>
             </div>
 
@@ -248,4 +215,4 @@ const DashboardAdmin = () => {
     )
 };
 
-export default DashboardAdmin;
+export default Dashboard;

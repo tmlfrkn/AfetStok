@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import sarper from "./images/sarper.jpg";
 import nurlan from "./images/nurlan.png";
 import onur from "./images/onur.png";
-import umut from "./images/umut.png";
+import umuttt from "./images/umuttt.jpeg";
 import furkan from "./images/furkan.png";
 import linkedin from "./images/linkedin.png";
 import dashboardimage from "./images/tab.png"
@@ -60,7 +60,7 @@ const AboutUs = () => {
                             <Link to="https://tr.linkedin.com/in/onur-dindaro%C4%9Flu-048a011b5" target="_blank" rel="noopener noreferrer"><img src={linkedin} className="linkedin"></img></Link>
                         </div>
                         <div className="umut man">
-                            <img src={umut} alt="umut" className="image"></img>
+                            <img src={umuttt} alt="umut" className="image"></img>
                             <p className="name">Umut Barış Ürem</p>
                             <p className="side">Back-end Developer</p>
                             <Link to="https://tr.linkedin.com/in/umut-bar%C4%B1%C5%9F-%C3%BCrem-5b94a018b" target="_blank" rel="noopener noreferrer"><img src={linkedin} className="linkedin"></img></Link>

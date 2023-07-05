@@ -2,12 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD15xx-WczyE29Ggnqi3cjyg9OKIZk_0gg",
-  authDomain: "afetstok-4aa80.firebaseapp.com",
-  projectId: "afetstok-4aa80",
-  storageBucket: "afetstok-4aa80.appspot.com",
-  messagingSenderId: "325797761358",
-  appId: "1:325797761358:web:7cb8673b6860848652ce1f"
+  apiKey: "AIzaSyBxREvmKPhW0l6L9rcHhkfeb2IYErAYyX8",
+  authDomain: "afetstokfinal.firebaseapp.com",
+  projectId: "afetstokfinal",
+  storageBucket: "afetstokfinal.appspot.com",
+  messagingSenderId: "120354229476",
+  appId: "1:120354229476:web:a14d8de8bc485705dab0f1",
+  measurementId: "G-FWT0MTCSZ7"
 };
 
 
