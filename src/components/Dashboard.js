@@ -157,19 +157,22 @@ const Dashboard = () => {
                         <button className="adana cities" onClick={() => setSelectedCity('Adana')}>Adana</button>
                     </div>
                     <div className="search-bar-div up">
-                    <input
-                        className="search-bar-dash"
-                        type="text"
-                        placeholder="Search for city"
-                        value={searchInput}
-                        onKeyDown={(e) => {
-                            if (e.key === 'Enter') {
-                                setSelectedCity(searchInput);
-                            }
-                        }}
-                        onChange={(e) => setSearchInput(e.target.value)}
-                    />
-                    </div>
+                          <input
+                            className="search-bar-dash"
+                            type="text"
+                            placeholder="Search for city"
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') {
+                                const userInput = searchInput.toLowerCase();
+                                const selectedCity = allcities.find(city => city.toLowerCase() === userInput);
+                                if (selectedCity) {
+                                  setSelectedCity(selectedCity);
+                                }
+                              }
+                            }}
+                            onChange={(e) => setSearchInput(e.target.value)}
+                          />
+                        </div>
                 </div>
                 <div className="dash-lower-part">
                     <div className="lower-upper-dash">
